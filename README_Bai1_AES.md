@@ -180,18 +180,24 @@ cs.FlushFinalBlock();
 **Giải mã**: đọc 16 byte đầu làm IV, phần còn lại qua `aes.CreateDecryptor()`.
 
 ---
+## 🧪 Thử nghiệm file hàng MB
+
+<img width="983" height="715" alt="image" src="https://github.com/user-attachments/assets/50897e24-2f1a-43b3-b3cd-632ea2e3b13d" />
+
 
 ## 🧪 Thử nghiệm file hàng GB
 
 ### Tạo file thử (PowerShell)
 ```powershell
-# File 2 GB (chỉ chứa byte 0, tạo gần như tức thì)
+# File 2 GB 
 fsutil file createnew D:\test\big_2GB.bin 2147483648
 
 # File 5 GB
 fsutil file createnew D:\test\big_5GB.bin 5368709120
 ```
 Hoặc dùng một file thật (video, file ISO, file nén...) từ vài GB trở lên.
+VD file 2GB 
+<img width="986" height="715" alt="image" src="https://github.com/user-attachments/assets/63dbee01-10a8-4d97-900e-e8e8e3b6641a" />
 
 ### Quy trình đo (làm cho mỗi file)
 1. Import khoá → **Mã hoá file** → ghi thời gian vào bảng.
