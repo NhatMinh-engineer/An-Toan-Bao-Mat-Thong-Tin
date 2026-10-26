@@ -143,9 +143,12 @@ dotnet run -- selftest
 1. **1+2. Sinh cặp khoá 2048 & xuất PEM** → chọn nơi lưu `public.pem` và `private.pem`.
 2. **3. View PEM…** → chọn 1 file PEM bất kỳ → ô "Giải mã cấu trúc PEM/DER" hiện cây TLV kèm chú thích.
 3. **4a. Import public.pem** / **4b. Import private.pem** → ô "Thành phần khoá vừa import" hiện n, e (và d, p, q... nếu import private).
+<img width="977" height="895" alt="image" src="https://github.com/user-attachments/assets/fcee1b71-e733-431e-ba44-d88f6ce7f52d" />
+
 4. Gõ dữ liệu vào ô **"5. Dữ liệu (≤ 190 byte, UTF-8)"** → bấm **Mã hoá (public) → lưu file base64**. Ô "Ciphertext (base64)" hiện kết quả, đồng thời lưu ra file.
 5. Bấm **6. Giải mã (private) ← file base64** → chọn lại file vừa lưu → ô "Kết quả" hiện văn bản giải mã + xác nhận **khớp dữ liệu gốc: CÓ/KHÔNG**.
 6. Bấm **7. Đánh giá tốc độ** (cần đã import private key) → hiện số ms/lần của mã hoá (public) và giải mã (private), cùng tỉ lệ chậm hơn bao nhiêu lần.
+<img width="976" height="982" alt="image" src="https://github.com/user-attachments/assets/3562959b-4423-479b-9409-73689ec0d751" />
 
 > ⚠️ Dữ liệu ở bước 5 phải ≤ 190 byte (UTF-8) — nếu dài hơn ứng dụng sẽ báo lỗi, đúng giới hạn OAEP-SHA256 của RSA-2048.
 
