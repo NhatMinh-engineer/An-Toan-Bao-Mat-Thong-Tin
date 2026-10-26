@@ -3,7 +3,8 @@
 > Môn: An toàn & Bảo mật thông tin  
 > Ứng dụng desktop (WinForms) + bản console, mã hoá **văn bản** và **file dung lượng lớn (hàng GB)** bằng AES-256.
 
-![screenshot](docs/images/aes-tab.png)
+<img width="983" height="715" alt="image" src="https://github.com/user-attachments/assets/bb2ea782-ff9e-4a5c-bc8a-a717bf107543" />
+
 <!-- Chụp màn hình tab "Bài 1 — AES" rồi đặt vào docs/images/aes-tab.png -->
 
 ---
