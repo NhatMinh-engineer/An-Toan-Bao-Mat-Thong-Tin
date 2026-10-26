@@ -156,10 +156,12 @@ dotnet run -- selftest
 
 - Gõ chuỗi vào ô nhập → kết quả SHA-256 (hex) tự cập nhật theo từng ký tự, kèm **số bit khác so với lần băm trước**.
 - Bấm **"Thống kê: lật 1 bit ngẫu nhiên × 200 lần"** → hiện trung bình/min/max số bit đầu ra thay đổi khi chỉ lật **1 bit** đầu vào (hiệu ứng avalanche).
+<img width="978" height="513" alt="image" src="https://github.com/user-attachments/assets/c50a6f85-8ea1-4ba4-9b58-73e09e54ba35" />
 
 ### Tab "Bài 9 — Chữ ký số"
 
 - Nhập dữ liệu cần ký → bấm **"Ký 3 lần: PSS vs PKCS#1 v1.5"** → hiện 3 chữ ký PKCS#1 (giống hệt nhau) rồi 3 chữ ký PSS (khác nhau mỗi lần, verify đều đúng), và kết quả verify khi sửa 1 ký tự dữ liệu (phải ra `False`).
+<img width="975" height="665" alt="image" src="https://github.com/user-attachments/assets/fcf0e3d6-d28c-4760-8f03-ebeef053bac9" />
 
 ### Bản console (tuỳ chọn)
 
@@ -236,12 +238,13 @@ public static bool VerifyPss(RSA publicKey, byte[] data, byte[] sig) =>
 
 | Thao tác | Khoá dùng | Độ lớn số mũ | Thời gian / lần (ms) |
 |---|---|---|---:|
-| Mã hoá   | public (n, e)  | e = 65537 (~17 bit) |  |
-| Giải mã  | private (n, d) | d ~2048 bit          |  |
+| Mã hoá   | public (n, e)  | e = 65537 (~17 bit) | 0,034 ms/lần  |
+| Giải mã  | private (n, d) | d ~2048 bit          | 0,411 ms/lần |
+=> Giải mã chậm hơn ≈ 12 lần
+→ e nhỏ (65537, ~17 bit) nên luỹ thừa mod nhanh; d ~2048 bit nên chậm.
 
-**Số liệu mẫu đo trên máy chạy thử (tham khảo):** mã hoá ≈ **0.03 ms/lần**, giải mã ≈ **0.39 ms/lần** → giải mã chậm hơn mã hoá khoảng **13 lần**.
 
-### Kết luận (viết lại theo số liệu của bạn)
+### Kết luận 
 
 1. **Public key luôn nhanh hơn private key** khi dùng để mã hoá/giải mã, vì số mũ `e` rất nhỏ còn `d` có kích thước bằng cả khoá (2048 bit).
 2. Chênh lệch tốc độ không đổi nhiều theo dữ liệu (dữ liệu ≤ 190 byte, chi phí chủ yếu nằm ở phép luỹ thừa mod, không phụ thuộc độ dài dữ liệu).
