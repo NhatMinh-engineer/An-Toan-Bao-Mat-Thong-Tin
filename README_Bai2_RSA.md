@@ -3,7 +3,8 @@
 > Môn: An toàn & Bảo mật thông tin  
 > Ứng dụng desktop (WinForms) + bản console: sinh cặp khoá, xuất/xem/nhập **PEM**, mã hoá/giải mã, đo tốc độ, băm **SHA-256**, và **chữ ký số**.
 
-![screenshot](docs/images/rsa-tab.png)
+<img width="980" height="703" alt="image" src="https://github.com/user-attachments/assets/0eea04bd-3b7b-4569-a799-1080a70eac45" />
+
 <!-- Chụp màn hình tab "Bài 2 — RSA" rồi đặt vào docs/images/rsa-tab.png -->
 
 ---
